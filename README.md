@@ -23,11 +23,11 @@ All chapter have code files.
 
 Software and Hardware List
 
-| Chapter       | Software required                                          | OS required                        |
-| ------------  | ---------------------------------------------------------- | -----------------------------------|
-| 1             | Java 8 Scala 2.11.7                                        | Linux - Ubuntu - 14 or 15          |
-| 2-6, 8, 9 10  | Java 8 Scala 2.11.7 SBT 0.13 Activator 1.3                 | Linux - Ubuntu - 14 or 15          |
-| 7             | Java 8 Scala 2.11.7 SBT 0.13 Activator 1.3 Jasper Studio 6 | Linux - Ubuntu - 14 or 15          |
+| Chapter       | Software required                                              | OS required                        |
+| ------------  | -------------------------------------------------------------- | -----------------------------------|
+| 1             | Java 8, Scala 2.11.7                                           | Linux - Ubuntu - 14 or 15          |
+| 2-6, 8, 9 10  | Java 8, Scala 2.11.7, SBT 0.13, Activator 1.3                  | Linux - Ubuntu - 14 or 15          |
+| 7             | Java 8, Scala 2.11.7, SBT 0.13, Activator 1.3, Jasper Studio 6 | Linux - Ubuntu - 14 or 15          |
 
 ##Related Products
 * [Learning Concurrent Programming in Scala](https://www.packtpub.com/application-development/learning-concurrent-programming-scala?utm_source=Github&utm_medium=repository&utm_campaign=9781783281411)
