@@ -1,6 +1,9 @@
 #Building Applications with Scala
 This is the code repository for [Building Applications with Scala](https://www.packtpub.com/application-development/building-applications-scala?utm_source=Github&utm_medium=repository&utm_campaign=9781786461483), published by Packt. It contains all the supporting project files necessary to work through the book from start to finish.
 
+## About the Book
+Scala is known for incorporating both object-oriented and functional programming into a concise and extremely powerful package. However, creating an app in Scala can get a little tricky because of the complexity the language has. This book will help you dive straight into app development by creating a real, reactive, and functional application. We will provide you with practical examples and instructions using a hands-on approach that will give you a firm grounding in reactive functional principles.
+
 ##Instructions and Navigations
 
 All of the code is organized into folders. Each folder starts with a number followed by the application name. For example, Chapter02.
