@@ -1,0 +1,29 @@
+@(reviews:Seq[Review])(implicit flash: Flash)
+
+@main("Reviews") {
+
+  @if(!reviews.isEmpty) {
+    <table class="table table-striped">
+      <tr>
+        <th>ProductId</th>
+        <th>Author</th>
+        <th>Comment</th>
+        <th></th>
+      </tr>
+    @for(review <- reviews) {
+      <tr>
+        <td><a href="@routes.ReviewController.details(review.id.get)">@review.productId</a></td>
+        <td>@review.author</td>
+        <td>@review.comment</td>
+        <td>
+          <form method="post" action="@routes.ReviewController.remove(review.id.get)">
+            <button id="btnDelete" name="btnDelete" class="btn btn-link" type="submit"><i class="icon-trash"></i>Delete</button>
+          </form>
+        </td>
+      </tr>
+    }
+    </table>
+  }
+  <p><a href="@routes.ReviewController.blank" class="btn btn-success"><i class="icon-plus icon-white"></i>Add Review</a></p>
+  
+}

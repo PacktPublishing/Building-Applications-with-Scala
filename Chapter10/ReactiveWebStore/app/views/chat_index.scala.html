@@ -1,0 +1,53 @@
+@()(implicit flash:Flash)
+
+@main("Chat"){
+
+  <!DOCTYPE html>
+  <meta charset="utf-8" />
+  <title>Chat Room</title>
+  <script type="text/javascript">
+	  var output;
+	  var websocket = new WebSocket("ws://localhost:9000/chat/ws");
+	  
+	  function init(){
+	    output = document.getElementById("output");
+	    
+	    websocket.onmessage = function(evt) { 
+	    	writeToScreen('<span style="color:blue;">' + evt.data+ '</span>'); 
+		};
+		
+	    websocket.onerror = function(evt) { 
+	    	writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data); 
+	    };
+	  }
+	  
+	  function doSend(message){
+	    websocket.send(message);
+	  }
+	
+	  function writeToScreen(message){
+	    var pre = document.createElement("p");
+	    pre.style.wordWrap = "break-word";
+	    pre.innerHTML = message;
+	    $('#output').prepend(pre);
+	  }
+	
+	  window.addEventListener("load", init, false);
+  </script>
+
+  <h3>Messages</h3>
+  <div id="output" style="width: 800px; height: 250px; overflow-y: scroll;" >
+  </div>
+
+  <div id="contentMessage">	
+	  <BR>
+	  user:	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	  <input type="text" name="txtUser" id="txtUser" /> <BR><BR>
+	  message: <input type="text" name="txtMessage" id="txtMessage" /> <BR>
+	  <BR>
+	  
+	  <a href="#" class="btn btn-success" 
+	  onclick="doSend( document.getElementById('txtUser').value + ':' + document.getElementById('txtMessage').value );">
+	  <i class="icon-plus icon-white"></i>Send Message</a>
+  </div>
+}

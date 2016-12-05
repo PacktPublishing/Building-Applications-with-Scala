@@ -1,0 +1,29 @@
+@(products:Seq[Product])(implicit flash: Flash)
+
+@main("Products") {
+
+  @if(!products.isEmpty) {
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Details</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    @for(product <- products) {
+      <tr>
+        <td><a href="@routes.ProductController.details(product.id.get)">@product.name</a></td>
+        <td>@product.details</td>
+        <td>@product.price</td>
+        <td>
+          <form method="post" action="@routes.ProductController.remove(product.id.get)">
+            <button id="btnDelete" name="btnDelete" class="btn btn-link" type="submit"><i class="icon-trash"></i>Delete</button>
+          </form>
+        </td>
+      </tr>
+    }
+    </table>
+  }
+  <p><a href="@routes.ProductController.blank"  class="btn btn-success"><i class="icon-plus icon-white"></i>Add Product</a> <a href="@routes.ProductController.report" class="btn btn-success"><i class="icon-plus icon-white"></i>Products Report</a></p>
+  
+}

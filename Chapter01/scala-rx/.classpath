@@ -1,0 +1,8 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/scala"/>
+  <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+  <classpathentry sourcepath="/home/diego/.ivy2/cache/io.reactivex/rxscala_2.11/srcs/rxscala_2.11-0.26.1-sources.jar" kind="lib" path="/home/diego/.ivy2/cache/io.reactivex/rxscala_2.11/jars/rxscala_2.11-0.26.1.jar"/>
+  <classpathentry sourcepath="/home/diego/.ivy2/cache/io.reactivex/rxjava/srcs/rxjava-1.1.1-sources.jar" kind="lib" path="/home/diego/.ivy2/cache/io.reactivex/rxjava/jars/rxjava-1.1.1.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="output" path="bin"/>
+</classpath>

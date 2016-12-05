@@ -1,0 +1,28 @@
+@(images:Seq[Image])(implicit flash:Flash)
+
+@main("Images") {
+
+  @if(!images.isEmpty) {
+    <table class="table table-striped">
+      <tr>
+        <th>ProductID</th>
+        <th>URL</th>
+        <th></th>
+      </tr>
+    @for(image <- images) {
+      <tr>
+        <td><a href="@routes.ImageController.details(image.id.get)">@image.id</a></td>
+        <td>@image.productId</td>
+        <td>@image.url</td>
+        <td>
+          <form method="post" action="@routes.ImageController.remove(image.id.get)">
+            <button id="btnDelete" name="btnDelete" class="btn btn-link" type="submit"><i class="icon-trash"></i>Delete</button>
+          </form>
+        </td>
+      </tr>
+    }
+    </table>
+  }
+  <p><a href="@routes.ImageController.blank" class="btn btn-success"><i class="icon-plus icon-white"></i>Add Image</a> <a href="@routes.ImageController.report" class="btn btn-success"><i class="icon-plus icon-white"></i>Images Report</a> </p>
+  
+}

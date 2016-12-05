@@ -1,0 +1,33 @@
+@(id: Option[Long],review:Form[Review],products:Seq[(String,String)])(implicit flash:Flash)
+
+@import play.api.i18n.Messages.Implicits._
+@import play.api.Play.current
+
+@main("review: " + review("name").value.getOrElse("")){ 
+
+	 @if(review.hasErrors) {
+		   <div class="alert alert-error">
+		     <button type="button" class="close" data-dismiss="alert">&times;</button>
+		     Sorry! Some information does not look right. Could you review it please and re-submit?
+		   </div>
+	 }
+
+	 @helper.form(action = if (id.isDefined) routes.ReviewController.update(id.get) else routes.ReviewController.insert) {
+		
+		@helper.select(
+		  	field = review("productId"),
+   			options = products,
+            '_label -> "Product Name", 
+            '_default -> review("productId").value.getOrElse("Choose One")
+		)
+		@helper.inputText(review("author"),     '_label -> "Author")
+		@helper.inputText(review("comment"),    '_label -> "Comment")
+		
+		<div class="form-actions">
+		  <button type="submit" class="btn btn-primary">
+		    @if(id.isDefined) { Update review } else { New review }
+		  </button>
+		</div>
+	}
+
+}

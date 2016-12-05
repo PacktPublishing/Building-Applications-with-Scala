@@ -1,0 +1,41 @@
+@(id: Option[Long],image:Form[Image],products:Seq[(String,String)])(implicit flash:Flash)
+
+@import play.api.i18n.Messages.Implicits._
+@import play.api.Play.current
+
+@main("Image: " + image("productId").value.getOrElse("")){ 
+	 
+	 @if(image.hasErrors) {
+		   <div class="alert alert-error">
+		     <button type="button" class="close" data-dismiss="alert">&times;</button>
+		     Sorry! Some information does not look right. Could you image it please and re-submit?
+		   </div>
+	 }
+
+	 @helper.form(action = if (id.isDefined) routes.ImageController.update(id.get) else routes.ImageController.insert) {
+		
+		@helper.select(
+		  	field = image("productId"),
+   			options = products,
+            '_label -> "Product Name", 
+            '_default -> image("productId").value.getOrElse("Choose One")
+		)
+		
+		@helper.inputText( 
+		    image("url"), 
+			'_label       -> "URL",
+			'_placeholder -> "/assets/images/default_product.png",
+			'onchange     -> "javascript:loadImage();"
+	    )
+		
+		Visualization<br>
+		<img id="imgProduct" height="42" width="42" src="@image("url").value"></img>
+		
+		<div class="form-actions">
+		  <button type="submit" class="btn btn-primary">
+		    @if(id.isDefined) { Update Image } else { New Image }
+		  </button>
+		</div>
+	}
+
+}

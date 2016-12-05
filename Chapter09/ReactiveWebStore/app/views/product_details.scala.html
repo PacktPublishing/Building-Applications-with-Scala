@@ -1,0 +1,29 @@
+@(id: Option[Long],product:Form[Product])(implicit flash:Flash)
+
+@import play.api.i18n.Messages.Implicits._
+@import play.api.Play.current
+
+@main("Product: " + product("name").value.getOrElse("")){ 
+
+	 @if(product.hasErrors) {
+		   <div class="alert alert-error">
+		     <button type="button" class="close" data-dismiss="alert">&times;</button>
+		     Sorry! Some information does not look right. Could you review it please and re-submit?
+		   </div>
+	 }
+
+	 @helper.form(action = if (id.isDefined) routes.ProductController.update(id.get) else routes.ProductController.insert) {
+		
+		@helper.inputText(product("name"),    '_label -> "Product Name")
+		@helper.inputText(product("details"), '_label -> "Product Details")
+		@helper.inputText(product("price"),   '_label -> "Price") 
+		
+		<div class="form-actions">
+		  <button type="button" class="btn btn-primary" onclick="javascript:loadPrice(document);" >Load Rnd Price</button>
+		  <button type="submit" class="btn btn-primary">
+		    @if(id.isDefined) { Update Product } else { New Product }
+		  </button>
+		</div>
+	}
+
+}

@@ -1,0 +1,7 @@
+@(message: String)(implicit flash:Flash)
+
+@main("Welcome to Reactive Web Store"){
+   <a href="/product"><img height="42" width="42" src="@routes.Assets.at("images/product.png")"> Manage Products</a><BR>
+   <a href="/review"><img height="42" width="42"  src="@routes.Assets.at("images/review.png")"> Manage Reviews</a><BR>
+   <a href="/image"><img height="42" width="42"   src="@routes.Assets.at("images/image.png")"> Manage Images</a><BR>
+}

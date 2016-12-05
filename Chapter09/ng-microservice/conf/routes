@@ -1,0 +1,6 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET /double      controllers.NGServiceEndpoint.double
+GET /doubles/:n  controllers.NGServiceEndpoint.doubles(n:Int)
